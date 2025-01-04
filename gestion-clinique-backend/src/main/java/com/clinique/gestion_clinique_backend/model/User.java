@@ -4,8 +4,8 @@ import com.clinique.gestion_clinique_backend.enums.Role;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED) // Utilisation de la stratégie JOINED
-@Table(name = "users") // Nom de la table pour la classe parent
+@Inheritance(strategy = InheritanceType.JOINED) // Stratégie JOINED pour l'héritage
+@Table(name = "users")
 public class User {
 
     @Id
@@ -24,6 +24,19 @@ public class User {
     @Enumerated(EnumType.STRING) // Utilisation de l'énumération comme chaîne
     @Column(nullable = false)
     private Role role;
+
+    // Informations communes
+    @Column(nullable = false)
+    private String nom;
+
+    @Column(nullable = false)
+    private String prenom;
+
+    @Column(nullable = false)
+    private String adresse;
+
+    @Column(nullable = false)
+    private String telephone;
 
     // Getters et setters
 
@@ -65,5 +78,37 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }

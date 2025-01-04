@@ -1,5 +1,4 @@
 package com.clinique.gestion_clinique_backend.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,7 +18,7 @@ public class SecurityConfig {
                 .csrf().disable()  // Désactive CSRF si nécessaire
                 .authorizeRequests()
                 .requestMatchers("/login", "/register").permitAll()  // Pages accessibles sans authentification
-                .anyRequest().authenticated()  // Toutes les autres pages nécessitent authentification
+                .anyRequest().permitAll()  // Permet à toutes les autres pages d'être accessibles sans authentification
                 .and()
                 .formLogin()
                 .loginPage("/login")  // Page de login personnalisée
