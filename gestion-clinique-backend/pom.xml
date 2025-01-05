@@ -117,20 +117,6 @@
 				<artifactId>spring-boot-starter-web</artifactId>
 			</dependency>
 
-			<!-- Core UI (CSS and JS for dashboard) -->
-			<dependency>
-				<groupId>com.github.coreui</groupId>
-				<artifactId>coreui-free-bootstrap-admin-template</artifactId>
-				<version>4.0.0</version>
-				<scope>compile</scope>
-			</dependency>
-
-			<!-- Mustache Template Engine -->
-			<dependency>
-				<groupId>com.github.mustachejava</groupId>
-				<artifactId>mustache</artifactId>
-				<version>0.9.7</version>
-			</dependency>
 
 			<!-- Spring Boot Starter for Static Content (optional for serving static resources) -->
 			<dependency>
@@ -138,8 +124,8 @@
 				<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			</dependency>
 
-
 	</dependencies>
+
 
 	<build>
 		<plugins>

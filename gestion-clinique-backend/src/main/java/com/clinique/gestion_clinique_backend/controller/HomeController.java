@@ -4,12 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class PageController {
+public class HomeController {
 
-
-    @GetMapping("/welcome")
-    public String showaWelcomePage() {
-        return "pages/welcome"; // Affiche pages/welcome.html
+    @GetMapping("/")
+    public String index() {
+        return "index";  // Retourne le fichier index.html dans src/main/resources/templates
     }
-
 }
