@@ -8,6 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static javax.management.Query.and;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -17,6 +19,24 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
+
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .anyRequest().permitAll()
+                .and()
+                .csrf().disable(); // Désactive CSRF pour simplifier (optionnel, à utiliser avec précaution)
+
+        return http.build();
+    }
+}
+
+
+
 /*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -40,20 +60,4 @@ public class SecurityConfig {
     }
 
  */
-
-
-
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .anyRequest().permitAll() // Autorise toutes les requêtes sans authentification
-                .and()
-                .csrf().disable(); // Désactive CSRF pour simplifier (optionnel, à utiliser avec précaution)
-
-        return http.build();
-    }
-}
-
 

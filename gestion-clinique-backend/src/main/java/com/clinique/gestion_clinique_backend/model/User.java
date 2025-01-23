@@ -13,9 +13,11 @@ public class User {
     private Long id;
 
     @Column(nullable = false ,unique = true )
+    @jakarta.validation.constraints.Email
     private String email;
 
     @Column(nullable = false)
+    @jakarta.validation.constraints.Size(min = 6, message = "Le mot de passe doit avoir au moins 6 caractères.")
     private String password;
 
     @Enumerated(EnumType.STRING) // Utilisation de l'énumération comme chaîne
@@ -29,10 +31,11 @@ public class User {
     @Column(nullable = false)
     private String prenom;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String adresse;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    @jakarta.validation.constraints.Pattern(regexp = "^[0-9]+$", message = "Le numéro de téléphone doit contenir uniquement des chiffres.")
     private String telephone;
 
     // Getters et setters
@@ -99,4 +102,7 @@ public class User {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+
+
 }
