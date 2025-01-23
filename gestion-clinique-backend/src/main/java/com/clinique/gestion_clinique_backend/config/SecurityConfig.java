@@ -17,12 +17,13 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+/*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/welcome").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/medecin/**").hasRole("MEDECIN")
                 .requestMatchers("/patient/**").hasRole("PATIENT")
@@ -37,4 +38,22 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+ */
+
+
+
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .anyRequest().permitAll() // Autorise toutes les requêtes sans authentification
+                .and()
+                .csrf().disable(); // Désactive CSRF pour simplifier (optionnel, à utiliser avec précaution)
+
+        return http.build();
+    }
 }
+
+

@@ -1,7 +1,8 @@
 package com.clinique.gestion_clinique_backend.controller.auth;
 
-import com.clinique.gestion_clinique_backend.model.*;
-import com.clinique.gestion_clinique_backend.repository.*;
+import com.clinique.gestion_clinique_backend.enums.Role;
+import com.clinique.gestion_clinique_backend.model.Patient;
+import com.clinique.gestion_clinique_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.clinique.gestion_clinique_backend.enums.Role;
-
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/auth")
