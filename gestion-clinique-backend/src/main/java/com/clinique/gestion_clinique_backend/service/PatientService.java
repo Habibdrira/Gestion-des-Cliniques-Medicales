@@ -14,9 +14,7 @@ public class PatientService {
     private PatientRepository patientRepository;
 
     // Méthode pour vérifier si le nom d'utilisateur existe déjà
-    public boolean existsByUsername(String username) {
-        return patientRepository.existsByUsername(username);
-    }
+
 
     // Méthode pour vérifier si l'email existe déjà
     public boolean existsByEmail(String email) {

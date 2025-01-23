@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Inscription</title>
+  <!-- Icons-->
+  <link href="/node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="app flex-row align-items-center">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mx-4">
+        <form action="/auth/register" method="post" id="registerForm">
+          <div class="card-body p-4">
+            <h1>Inscription</h1>
+            <p class='text-muted'>Créez votre compte</p>
+
+            <!-- Nom -->
+            <div class='input-group mb-3'>
+              <input type='text' name='nom' placeholder='Nom' required class='form-control'>
+            </div>
+
+            <!-- Prénom -->
+            <div class='input-group mb-3'>
+              <input type='text' name='prenom' placeholder='Prénom' required class='form-control'>
+            </div>
+
+            <!-- Email -->
+            <div class='input-group mb-3'>
+              <input type='email' name='email' placeholder='Email' required class='form-control'>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class='input-group mb-3'>
+              <input type='password' name='password' placeholder='Mot de passe' required class='form-control'>
+            </div>
+
+            <!-- Répéter mot de passe -->
+            <div class='input-group mb-4'>
+              <input type='password' name='confirmPassword' placeholder='Répéter mot de passe' required class='form-control'>
+            </div>
+
+            <!-- Soumettre le formulaire -->
+            <button type='submit' form='registerForm' class='btn btn-block btn-success'>Créer un compte</button>
+
+          </div>
+        </form>
+
+        <!-- Lien vers la page de connexion -->
+        <div class='card-footer p-4'>
+          <button onclick='location.href="/auth/login"' class='btn btn-block btn-info'>Page de connexion</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CoreUI and necessary plugins-->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

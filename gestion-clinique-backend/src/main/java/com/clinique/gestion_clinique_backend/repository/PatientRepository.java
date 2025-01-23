@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     // Vérifier si le nom d'utilisateur existe déjà
-    boolean existsByUsername(String username);
+
 
     // Vérifier si l'email existe déjà
     boolean existsByEmail(String email);

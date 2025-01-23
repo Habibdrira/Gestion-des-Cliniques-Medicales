@@ -1,4 +1,5 @@
 package com.clinique.gestion_clinique_backend.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,27 +12,29 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // Configuration de la sécurité pour HTTP
+    // Définir un bean PasswordEncoder
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()  // Désactive CSRF si nécessaire
                 .authorizeRequests()
-                .requestMatchers("/login", "/register").permitAll()  // Pages accessibles sans authentification
-                .anyRequest().permitAll()  // Permet à toutes les autres pages d'être accessibles sans authentification
+                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/medecin/**").hasRole("MEDECIN")
+                .requestMatchers("/patient/**").hasRole("PATIENT")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")  // Page de login personnalisée
+                .loginPage("/auth/login")
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();  // Autoriser la déconnexion
-        return http.build();  // Retourne la configuration sous forme de DefaultSecurityFilterChain
-    }
+                .permitAll();
 
-    // Bean pour encoder les mots de passe avec BCrypt
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();  // Utiliser BCrypt pour hasher les mots de passe
+        return http.build();
     }
 }
