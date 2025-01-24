@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
+
     public String index() {
-        return "index";  // Retourne le fichier index.html dans src/main/resources/templates
+        return "dashboard/index";
     }
+
 }

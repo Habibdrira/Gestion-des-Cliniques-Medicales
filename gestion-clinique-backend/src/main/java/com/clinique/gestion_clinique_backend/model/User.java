@@ -33,12 +33,7 @@ public class User {
     @Column(nullable = false)
     private String prenom;
 
-    @Column(nullable = true)
-    private String adresse;
 
-    @Column(nullable = true)
-    @jakarta.validation.constraints.Pattern(regexp = "^[0-9]+$", message = "Le numéro de téléphone doit contenir uniquement des chiffres.")
-    private String telephone;
 
     // Getters et setters
     public Long getId() {
@@ -89,21 +84,6 @@ public class User {
         this.prenom = prenom;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
     public String getConfirmPassword() {
         return confirmPassword;
     }
