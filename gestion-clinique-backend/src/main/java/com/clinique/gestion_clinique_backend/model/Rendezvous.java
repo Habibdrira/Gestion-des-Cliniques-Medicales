@@ -14,11 +14,11 @@ public class Rendezvous {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "medecin_id", nullable = false)
+    @JoinColumn(name = "medecin_id", nullable = true)
     private Medecin medecin;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
+    @JoinColumn(name = "patient_id", nullable = true)
     private Patient patient;
 
     private LocalDateTime dateHeure;  // Date et heure du rendez-vous

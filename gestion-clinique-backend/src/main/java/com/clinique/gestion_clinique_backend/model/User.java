@@ -19,6 +19,8 @@ public class User {
     @Column(nullable = false)
     @jakarta.validation.constraints.Size(min = 6, message = "Le mot de passe doit avoir au moins 6 caractères.")
     private String password;
+    @Transient
+    private String confirmPassword;
 
     @Enumerated(EnumType.STRING) // Utilisation de l'énumération comme chaîne
     @Column(nullable = false)
@@ -102,7 +104,13 @@ public class User {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
 
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
 
 }

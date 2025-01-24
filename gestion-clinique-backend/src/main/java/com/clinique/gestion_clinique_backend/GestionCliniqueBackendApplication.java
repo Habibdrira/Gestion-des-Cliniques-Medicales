@@ -3,6 +3,7 @@ package com.clinique.gestion_clinique_backend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class GestionCliniqueBackendApplication {
 
@@ -10,4 +11,6 @@ public class GestionCliniqueBackendApplication {
 		SpringApplication.run(GestionCliniqueBackendApplication.class, args);
 	}
 
+
 }
+

@@ -9,19 +9,5 @@ import java.util.List;
 @Table(name = "patients") // Table spécifique pour Patient
 public class Patient extends User {
 
-    @OneToMany(mappedBy = "patient")
-    private List<Rendezvous> rendezvous;
 
-    public Patient() {
-        // Le rôle par défaut est Patient
-        setRole(Role.PATIENT);
-    }
-
-    public List<Rendezvous> getRendezvous() {
-        return rendezvous;
-    }
-
-    public void setRendezvous(List<Rendezvous> rendezvous) {
-        this.rendezvous = rendezvous;
-    }
 }

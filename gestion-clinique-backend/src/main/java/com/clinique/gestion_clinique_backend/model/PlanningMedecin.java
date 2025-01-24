@@ -13,7 +13,7 @@ public class PlanningMedecin {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "medecin_id", nullable = false)
+    @JoinColumn(name = "medecin_id", nullable = true)
     private Medecin medecin;
 
     private LocalDateTime disponibiliteDebut;  // Heure de début de disponibilité
